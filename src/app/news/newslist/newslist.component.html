@@ -1,0 +1,21 @@
+<div class="container" *ngIf="news$ | async as newsState">
+  <h5>Search results</h5>
+  <div class="row" *ngIf="newsState.news ; else noResult">
+    <div class="col-sm-4 py-2" *ngFor="let doc of newsState.news.response.docs">
+      <div class="card card-body h-100">
+        <div class="card-block">
+          <h5 class="card-title">
+            <a href="{{doc.web_url}}" target="new">{{doc.headline.main}}</a>
+          </h5>
+          <img class="img-fluid" src="{{imageUrl(doc.multimedia)}}" alt="Image" *ngIf="imageUrl(doc.multimedia)">
+          <p class="card-text">{{doc.snippet}}</p>
+          <p class="card-text">
+            <small class="text-muted">Published {{doc.pub_date | date:'dd.MM.yyyy HH:mm'}}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="newsState.news.response.docs.length === 0" class="col-sm-4 py-2">No search results!</div>
+  </div>
+  <ng-template #noResult><div class="row"><div class="col-sm-4 py-2">Seacrh news.</div></div></ng-template>
+</div>

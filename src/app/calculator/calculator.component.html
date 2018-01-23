@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row" *ngIf="searchTimes$ | async as counter">
+    <div class="col-sm-4 py-2">
+      News search done {{counter.counter.count}} times.
+    </div>
+  </div>
+</div>
