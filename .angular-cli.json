@@ -7,10 +7,7 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
+      "assets": ["assets", "favicon.ico"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -26,7 +23,7 @@
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
-        "dev": "environments/environment.ts",
+        "dev": "environments/environment.dev.ts",
         "prod": "environments/environment.prod.ts"
       }
     }

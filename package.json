@@ -4,17 +4,23 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "config": "ts-node ./src/set-env.ts",
+    "dev": "npm run config -- --environment=dev && ng serve --environment=dev",
+    "start": "node server.js",
+    "build":
+      "npm run config -- --environment=prod && ng build --environment=prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "5.1.2",
+    "@angular/cli": "^1.6.3",
     "@angular/common": "5.1.2",
     "@angular/compiler": "5.1.2",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "5.1.2",
     "@angular/forms": "5.1.2",
     "@angular/http": "5.1.2",
@@ -27,18 +33,20 @@
     "bootstrap": "4.0.0-beta.2",
     "core-js": "2.4.1",
     "date-fns": "1.29.0",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
     "ngx-bootstrap": "2.0.0-rc.0",
     "rxjs": "5.5.2",
+    "typescript": "~2.4.2",
     "zone.js": "0.8.18"
   },
   "devDependencies": {
-    "@angular/cli": "^1.6.3",
-    "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
-    "@types/node": "~6.0.60",
+    "@types/node": "^9.4.6",
     "codelyzer": "^4.0.1",
+    "enhanced-resolve": "^4.0.0-beta.4",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
@@ -50,6 +58,10 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.4.2"
+    "yargs": "^11.0.0"
+  },
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.6.0"
   }
 }
