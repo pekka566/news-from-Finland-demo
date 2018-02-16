@@ -41,7 +41,13 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Secret key
+# Secret key - deprecated
 /src/app/app.env.ts
 
+# Secret keyz
+.env
+src/environments/environment.dev.ts
+
 /yarn.lock
+
+
