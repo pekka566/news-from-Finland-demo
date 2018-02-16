@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { SearchParameters } from '../actions/news.actions';
-import {format} from 'date-fns';
-import {API_KEY} from '../../app.env';
+import { format } from 'date-fns';
+// import {API_KEY} from '../../app.env';
 
 @Injectable()
 export class NewsApiService {
@@ -15,7 +15,7 @@ export class NewsApiService {
   constructor(private http: HttpClient) {
     this.baseUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
     // set own apiKey in https://developer.nytimes.com/
-    this.apiKey = API_KEY;  // DON'T ADD KEY TO GITHUB!!!
+    this.apiKey = ''; // API_KEY;  // DON'T ADD KEY TO GITHUB!!!
   }
 
   public fetchArticles(searchParameters: SearchParameters): Observable<any> {
@@ -29,13 +29,13 @@ export class NewsApiService {
     ].join('&');
     const queryUrl = `${this.baseUrl}${params}`;
     console.log(queryUrl);
-    return this.http.get<any>(queryUrl)
-      .catch(this.handleError);
+    return this.http.get<any>(queryUrl).catch(this.handleError);
   }
 
   private handleError(error: Response | any) {
-    const errMsg = (error.message) ? error.message :
-        error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    const errMsg = error.message
+      ? error.message
+      : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
