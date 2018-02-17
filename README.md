@@ -5,7 +5,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Installation
 
 Run `yarn` to install dependencies.
-Add `app.env.ts` file to `/src/app` directory including `export const API_KEY= 'yourApiKey';`
 
 ## Development server
 

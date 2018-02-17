@@ -5,7 +5,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { SearchParameters } from '../actions/news.actions';
 import { format } from 'date-fns';
-// import {API_KEY} from '../../app.env';
 
 @Injectable()
 export class NewsApiService {
@@ -13,9 +12,7 @@ export class NewsApiService {
   apiKey: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
-    // set own apiKey in https://developer.nytimes.com/
-    this.apiKey = ''; // API_KEY;  // DON'T ADD KEY TO GITHUB!!!
+    this.baseUrl = 'https://news-from-finland-api.herokuapp.com/news';
   }
 
   public fetchArticles(searchParameters: SearchParameters): Observable<any> {
@@ -24,11 +21,10 @@ export class NewsApiService {
     const params: string = [
       `?q=${searchParameters.question}`,
       `begin_date=${beginDateStr}`,
-      `end_date=${endDateStr}`,
-      `api_key=${this.apiKey}`
+      `end_date=${endDateStr}`
     ].join('&');
     const queryUrl = `${this.baseUrl}${params}`;
-    console.log(queryUrl);
+    // console.log(queryUrl);
     return this.http.get<any>(queryUrl).catch(this.handleError);
   }
 
