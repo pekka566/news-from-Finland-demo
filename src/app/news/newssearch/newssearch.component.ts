@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
@@ -16,7 +16,7 @@ const currentDate = new Date();
   selector: 'app-newssearch',
   templateUrl: './newssearch.component.html'
 })
-export class NewssearchComponent {
+export class NewssearchComponent implements OnInit {
   minDate = new Date(currentDate.getFullYear() - 1, 0, 1);
   maxDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 31);
 
@@ -55,6 +55,10 @@ export class NewssearchComponent {
         maxDate: this.maxDate
       }
     );
+  }
+
+  ngOnInit() {
+    this.onSubmit();
   }
 
   onSubmit() {

@@ -1,11 +1,19 @@
-<div>
+<!-- Page Header -->
+<header class="masthead" [ngStyle]="{background: 'url(assets/images/landscape-2813155_1920.jpg)'}">
+  <div class="overlay"></div>
   <div class="container">
     <div class="row">
-      <h1>{{title}}</h1>
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>{{title}}</h1>
+          <span class="subheading">News from Finland fetched by New York Times API</span>
+        </div>
+      </div>
     </div>
   </div>
-  <app-calculator></app-calculator>
+</header>
 
+<div class="container">
   <app-newssearch></app-newssearch>
   <app-newslist></app-newslist>
 </div>
