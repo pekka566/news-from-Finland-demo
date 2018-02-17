@@ -1,6 +1,8 @@
-# NewsReaderAngular
+# News from Finland!
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+[Live demo](https://news-from-finland.herokuapp.com/)
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3. News are fetched by [New Your Times Article Search API](https://developer.nytimes.com/article_search_v2.json#/Documentation/GET/articlesearch.json)
 
 ## Installation
 
